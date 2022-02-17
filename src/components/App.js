@@ -71,7 +71,7 @@ class App extends Component {
           <SearchForm onSearch={this.querySearch} />
           <Nav />
           <Switch>
-            <Route exact path='/:query' render={({ match }) => <PhotoContainer queryText={match.params.query} loading={this.state.loading} photos={this.state.photos} />} />
+            <Route exact path='/search/:query' render={({ match }) => <PhotoContainer querySearch={this.querySearch} queryText={match.params.query} loading={this.state.loading} photos={this.state.photos} />} />
             <Route path='/cats' render={() => <PhotoContainer queryText='cats' loading={this.state.loading} photos={this.state.cats} />} />
             <Route path='/dogs' render={() => <PhotoContainer queryText='dogs' loading={this.state.loading} photos={this.state.dogs} />} />
             <Route path='/computers' render={() => <PhotoContainer queryText='computers' loading={this.state.loading} photos={this.state.computers} />} />

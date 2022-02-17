@@ -4,6 +4,7 @@ import NotFound from './NotFound';
 class PhotoContainer extends Component {
   render() {
 
+
     const { photos, loading, queryText } = this.props;
 
     let photoDisplay;
