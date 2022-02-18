@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import NotFound from './NotFound';
 
 class PhotoContainer extends Component {
-  render() {
 
+  componentDidUpdate(prevProps) {
+    let { queryRoute } = this.props;
+    if (queryRoute !== prevProps.queryRoute)
+      this.querySearch(queryRoute);
+  }
+
+  render() {
 
     const { photos, loading, queryText } = this.props;
 
