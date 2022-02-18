@@ -4,9 +4,9 @@ import NotFound from './NotFound';
 class PhotoContainer extends Component {
 
   componentDidUpdate(prevProps) {
-    let { queryRoute } = this.props;
+    let { queryRoute, querySearch } = this.props;
     if (queryRoute !== prevProps.queryRoute)
-      this.querySearch(queryRoute);
+      querySearch(queryRoute);
   }
 
   render() {
