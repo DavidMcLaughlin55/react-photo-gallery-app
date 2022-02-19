@@ -9,7 +9,7 @@ import Nav from './Nav';
 import SearchForm from './SearchForm';
 import PhotoContainer from './PhotoContainer';
 
-//Fetch API
+// Fetch Flickr API
 const photoApiKey = apiKey;
 
 class App extends Component {
@@ -32,6 +32,9 @@ class App extends Component {
     this.querySearch('dogs');
     this.querySearch('computers');
   }
+
+  /* querySearch Function 
+   -Fetches the API using axios and responds with photos based on query */
 
   querySearch = (query) => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${photoApiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
@@ -71,10 +74,10 @@ class App extends Component {
           <SearchForm onSearch={this.querySearch} />
           <Nav />
           <Switch>
-            <Route path='/search/:query' render={({ match }) => <PhotoContainer querySearch={this.querySearch} queryRoute={match.params.query} queryText={this.state.query} loading={this.state.loading} photos={this.state.photos} />} />
-            <Route path='/cats' render={() => <PhotoContainer queryText='cats' loading={this.state.loading} photos={this.state.cats} />} />
-            <Route path='/dogs' render={() => <PhotoContainer queryText='dogs' loading={this.state.loading} photos={this.state.dogs} />} />
-            <Route path='/computers' render={() => <PhotoContainer queryText='computers' loading={this.state.loading} photos={this.state.computers} />} />
+            <Route path='/search/:query' render={({ match }) => <PhotoContainer querySearch={this.querySearch} query={match.params.query} loading={this.state.loading} photos={this.state.photos} />} />
+            <Route path='/cats' render={() => <PhotoContainer query='cats' loading={this.state.loading} photos={this.state.cats} />} />
+            <Route path='/dogs' render={() => <PhotoContainer query='dogs' loading={this.state.loading} photos={this.state.dogs} />} />
+            <Route path='/computers' render={() => <PhotoContainer query='computers' loading={this.state.loading} photos={this.state.computers} />} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -1,6 +1,7 @@
 body {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  background-color: #fefae0;
   color: #3f4850;
 }
 
@@ -27,7 +28,7 @@ a {
 
 .search-form button {
   outline: none;
-  background-color: #438bbd;
+  background-color: #959b81;
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
@@ -39,7 +40,7 @@ input {
   width: 100%;
   background-color: #edeff0;
   padding: 10px 15px;
-  border: 3px solid #d7dbdf;
+  border: 3px solid #959b81;
   border-right: none;
   border-radius: 0.35em 0 0 0.35em;
   outline: none;
@@ -52,16 +53,19 @@ input {
 
 .main-nav a {
   display: block;
-  background: #438bbd;
+  background: #959b81;
   border-radius: 3px;
   padding: 5px;
-  color: #fff;
+  color: rgb(8, 8, 8);
 }
 
 .main-nav .active,
-.main-nav a:hover,
+.main-nav a:hover {
+  background-color: #ccd5ae;
+}
+
 .search-form button:hover {
-  background-color: #275270;
+  background-color: #b3bb9b; 
 }
 
 .photo-container ul {
@@ -77,6 +81,7 @@ input {
   height: 165px;
   overflow: hidden;
   margin-bottom: 15px;
+  border: 2px black solid;
 }
 
 .photo-container ul img {

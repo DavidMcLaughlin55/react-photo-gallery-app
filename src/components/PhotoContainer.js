@@ -3,15 +3,19 @@ import NotFound from './NotFound';
 
 class PhotoContainer extends Component {
 
-  componentDidUpdate(prevProps) {
-    let { queryRoute, querySearch } = this.props;
-    if (queryRoute !== prevProps.queryRoute)
-      querySearch(queryRoute);
+  componentDidUpdate(prevState) {
+    let { query, querySearch } = this.props;
+    if (querySearch) {
+      if (query !== prevState.query)
+        querySearch(query);
+    }
   }
 
   render() {
 
-    const { photos, loading, queryText } = this.props;
+    const { photos, loading, query } = this.props;
+
+    // photoDisplay to contain photo elements after mapping over photos.
 
     let photoDisplay;
 
@@ -27,8 +31,9 @@ class PhotoContainer extends Component {
 
     return (
       <div className="photo-container" >
-        <h2>{queryText}</h2>
+        <h2>{query}</h2>
         <ul>
+          {/* Displays "loading message" until photoDisplay loaded. */}
           {(loading) ? <p>Loading...</p> : photoDisplay}
         </ul>
       </div>
