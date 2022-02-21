@@ -21,8 +21,8 @@ class PhotoContainer extends Component {
 
     if (photos.length > 0) {
       photoDisplay = photos.map(photo => (
-        <li>
-          <img src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt={photo.title} key={photo.id} />
+        <li key={photo.id} >
+          <img src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt={photo.title} />
         </li>
       ))
     } else {
